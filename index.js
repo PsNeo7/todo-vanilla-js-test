@@ -64,10 +64,12 @@ let render = () => {
         newListItem.dataset.type = "todoEle";
         newListItem.dataset.todoId = element.id;
         if (element.status) {
-            newListItem.style = "color: green"
-        } else {
-            newListItem.style = "color: red"
+            newListItem.style = "text-decoration: line-through"
+            // newListItem.style = "color: green"
         }
+        //  else {
+        //     newListItem.style = "color: red"
+        // }
         // newListItem.style = "cursor: default"
         todoListArea.appendChild(newListItem);
     });
