@@ -12,6 +12,7 @@ sortBtn = document.getElementById("sortBtn")
 
 // }
 
+
 function getLocalTodos() {
     if (!localStorage.getItem('todos')) {
         localStorage.setItem('todos', JSON.stringify([]))
@@ -40,16 +41,18 @@ create_todo_button.addEventListener('click', (e) => { createTodo(todo_input.valu
 sortBtn.addEventListener('click', (e) => { sortTodosByStatus() })
 
 function sortTodosByStatus() {
-    sorted_local_todos = []
-    local_todos.forEach((element, index) => {
-        if (!element.status) {
-            sorted_local_todos.unshift(element)
-        } else {
-            sorted_local_todos.push(element)
-        }
-    });
-    // console.log(local_todos, sorted_local_todos);
-    local_todos = sorted_local_todos
+    // sorted_local_todos = []
+    // local_todos.forEach((element, index) => {
+    //     if (!element.status) {
+    //         sorted_local_todos.unshift(element)
+    //     } else {
+    //         sorted_local_todos.push(element)
+    //     }
+    // });
+
+    // // console.log(local_todos, sorted_local_todos);
+    // local_todos = sorted_local_todos
+    local_todos = _.orderBy(local_todos, ['status'])
     render()
 }
 
